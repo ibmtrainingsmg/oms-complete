@@ -19,7 +19,7 @@ public class OrderService { // spring bean
 		Float tax = getTaxesTemplate.getForObject("http://localhost:8080/getTaxes?price={price}", Float.class,
 				order.getPrice());
 		System.out.println(tax);
-		order.setTax(tax);
+		order.setTax(tax); //saving tax in order class
 		Order savedOrder = orderRepository.save(order);
 		return savedOrder.getId();
 	}
