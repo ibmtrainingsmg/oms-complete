@@ -7,11 +7,21 @@ import org.springframework.data.annotation.Id;
 
 public class Order {
 	@NotNull
+	private float tax;
+	@NotNull
 	@NotBlank
 	private String item;
 	@Id
 	private String id;
 	private float price;
+
+	public float getTax() {
+		return tax;
+	}
+
+	public void setTax(float tax) {
+		this.tax = tax;
+	}
 
 	public String getId() {
 		return id;
@@ -26,7 +36,7 @@ public class Order {
 	}
 
 	public void setPrice(float price) {
-		if(price<=0) {
+		if (price <= 0) {
 			throw new IllegalArgumentException("price cannot be negative");
 		}
 		this.price = price;
@@ -39,5 +49,5 @@ public class Order {
 	public void setItem(String item) {
 		this.item = item;
 	}
-	
+
 }
